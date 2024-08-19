@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     stages {
+        stage('Check PATH') {
+            steps {
+                sh 'echo $PATH'
+            }
+        }
         stage('Check Node.js and npm Versions') {
             steps {
-                script {
-                    // Check Node.js version
-                    sh 'node --version'
-
-                    // Check npm version
-                    sh 'npm --version'
-                }
+                sh 'node --version'
+                sh 'npm --version'
             }
         }
     }
